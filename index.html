@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+      <img src="Julia_set_spiral.png" alt="">
+
+      <input type="range" min="1">
+      <svg>
+        <filter id="pixelate" x="0" y="0">
+            <feFlood x="4" y="4" height="2" width="2"/>
+            
+            <feComposite id="comp" width="40" height="40"/>
+            
+            <feTile result="a"/>
+            
+            <feComposite in="SourceGraphic" in2="a" 
+                         operator="in"/>
+            
+            <feMorphology id="morph" operator="dilate"
+                          radius="20"/>
+          </filter>
+      </svg>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+
+</html>
